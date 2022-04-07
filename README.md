@@ -25,6 +25,12 @@ bundle install
 ```
 
 ```
+export browser=firefox
 bundle exec rspec example.rb
 ```
 
+### 環境変数 browser の値
+
+- chrome : Chrome （デフォルト）  
+- firefox : Firefox
+- edge : MS Edge
