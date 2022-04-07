@@ -5,7 +5,11 @@ module ExampleDriver
     def endpoint
       "http://localhost:4444/wd/hub"
     end
-  
+
+    def browser
+      :firefox
+    end
+
     def options
       options = Selenium::WebDriver::Chrome::Options.new
       options.add_argument('start-maximized')
@@ -23,7 +27,12 @@ module ExampleDriver
     end
   
     def new_driver
-      driver = Selenium::WebDriver.for :remote, url: endpoint, capabilities: [caps, options]
+      if browser == :firefox
+        driver = Selenium::WebDriver.for :remote, url: endpoint, capabilities: :firefox
+      else
+        driver = Selenium::WebDriver.for :remote, url: endpoint, capabilities: [caps, options]
+      end
+
     end
   end
 end
